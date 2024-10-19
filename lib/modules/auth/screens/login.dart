@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_actividad1/validation/validations.dart';
 
@@ -60,9 +61,21 @@ class _LoginState extends State<Login> {
                   height: 48,
                   width: 256,
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        print('Iniciar Sesión');
+                        try {
+                          final credential = await FirebaseAuth.instance
+                              .signInWithEmailAndPassword(
+                                  email: _emailController.text,
+                                  password: _passwordController.text);
+                          print(credential);
+                        } on FirebaseAuthException catch (e) {
+                          if (e.code == 'user-not-found') {
+                            print('No user found for that email.');
+                          } else if (e.code == 'wrong-password') {
+                            print('Wrong password provided for that user.');
+                          }
+                        }
                       }
                     },
                     style: OutlinedButton.styleFrom(
@@ -80,12 +93,20 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.all(32.0),
                     child: InkWell(
                       onTap: () {
+                        Navigator.pushNamed(context, '/createaccount');
+                      },
+                      child: const Text('¿No tienes cuenta?', style: TextStyle( decoration: TextDecoration.underline)),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                    child: InkWell(
+                      onTap: () {
                         Navigator.pushNamed(context, '/recoverpassword');
                       },
                       child: const Text('¿Olvidaste tu contraseña?', style: TextStyle( decoration: TextDecoration.underline)),
                     ),
                   ),
-                ),
               ],
             ),
           ),

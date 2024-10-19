@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "299903922767",
+    "project_id": "flutteractividad1",
+    "storage_bucket": "flutteractividad1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299903922767:android:b4b30acbeaacb5d4d9b03a",
+        "android_client_info": {
+          "package_name": "com.example.flutter_actividad1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeQW3FRp_YlCa3PZl8dZispoHG3Sag5dg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

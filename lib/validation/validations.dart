@@ -17,9 +17,6 @@ class Validations {
       return 'Por favor, ingrese su contraseña';
     }
 
-    if (value.length < 8) {
-      return 'La contraseña debe tener al menos 8 caracteres';
-    }
 
     return null;
   }
@@ -43,6 +40,10 @@ class Validations {
 
     if (value != password) {
       return 'Las contraseñas no coinciden';
+    }
+
+    if (value.length < 6) {
+      return 'La contraseña debe tener al menos 6 caracteres';
     }
 
     return null;
