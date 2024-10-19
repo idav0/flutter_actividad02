@@ -15,7 +15,7 @@ const Profile({ super.key });
           onPressed: () async {
             await FirebaseAuth.instance.signOut();
           },
-          child: Text('Cerrar Sesión '),
+          child: Text('Cerrar Sesión'),
         ),
       ),
     );
